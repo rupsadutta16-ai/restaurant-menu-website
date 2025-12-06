@@ -14,7 +14,7 @@ const Contact = () => {
   useEffect(() => { AOS.refreshHard(); });
   return (
     <section id="contact" className="scroll-mt-40 w-full mt-52">
-      <h1 data-aos="fade-up" className="md:text-5xl text-4xl mx-auto w-[85%] whitetext text-mybutter font-pacifico ">Bite <span className="text-myash font-quicksand font-bold tracking-tight">Street</span></h1>
+      <h1 className="md:text-5xl text-4xl mx-auto w-[85%] whitetext text-mybutter font-pacifico ">Bite <span className="text-myash font-quicksand font-bold tracking-tight">Street</span></h1>
       <div className=" w-[85%] mx-auto mt-12 text-myash flex flex-col md:flex-row gap-12 mb-20">
 
 
@@ -24,8 +24,8 @@ const Contact = () => {
           <div className=" flex mt-2 flex-col md:flex-row gap-12 md:gap-0">
 
             <div className="flex-1">
-              <h2 data-aos="fade-up" className="text-2xl whitetext font-semibold mb-4">Get in Touch</h2>
-              <ul data-aos="fade-up" className="flex flex-col gap-3">
+              <h2  className="text-2xl whitetext font-semibold mb-4">Get in Touch</h2>
+              <ul  className="flex flex-col gap-3">
                 {contacts.map((c, idx) => {
                   const Icon = c.icon;
                   return (
@@ -39,23 +39,23 @@ const Contact = () => {
 
           
             <div className="flex-1">
-              <h2 data-aos="fade-up" className="whitetext text-2xl font-semibold mb-4">Opening Hours</h2>
-              <ul data-aos="fade-up" className="whitetext flex flex-col gap-2">
+              <h2  className="whitetext text-2xl font-semibold mb-4">Opening Hours</h2>
+              <ul  className="whitetext flex flex-col gap-2">
                 <li>Mon-Tue: 10:00 AM - 10:00 PM</li>
                 <li>Thu-Fri: 10:00 AM - 10:00 PM</li>
                 <li>Sat-Sun: 11:00 AM - 11:00 PM</li>
               </ul>
 
-              <h2 data-aos="fade-up" className="text-2xl font-semibold mt-6 whitetext mb-4">Address</h2>
-              <p data-aos="fade-up" className="whitetext">123 Bite Street Lane, Kolkata, West Bengal, India</p>
+              <h2  className="text-2xl font-semibold mt-6 whitetext mb-4">Address</h2>
+              <p  className="whitetext">123 Bite Street Lane, Kolkata, West Bengal, India</p>
             </div>
           </div>
         </div>
 
       
         <div className="flex-1 order-1 md:order-2  flex justify-center flex-col">
-          <h2 data-aos="fade-up" className="md:text-3xl text-2xl font-bold mb-4 md:mt-6 lg:mt-0 whitetext">Contact Us</h2>
-          <p data-aos="fade-up" className="whitetext text-lg">
+          <h2 className="md:text-3xl text-2xl font-bold mb-4 md:mt-6 lg:mt-0 whitetext">Contact Us</h2>
+          <p  className="whitetext text-lg">
             We'd love to hear from you! Whether it's feedback, questions, or collaborations, reach out and we'll get back to you as soon as possible.
           </p>
         </div>
