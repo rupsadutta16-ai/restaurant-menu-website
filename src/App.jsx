@@ -32,7 +32,7 @@ function App() {
     setTimeout(() => {
       setShowHeroPlate(false)
       
-    }, 500);
+    }, 700);
     
   }}
 /> }
