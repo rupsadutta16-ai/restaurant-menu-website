@@ -2,7 +2,7 @@
 import { XMarkIcon } from "@heroicons/react/24/outline"; 
 import { useState } from "react";
 import { FaPepperHot, FaFire, FaShoppingCart } from 'react-icons/fa'; 
-const Modal = ({ item, onClose }) => {
+const Modal = ({ open, item, onClose }) => {
 
     
   if (!item) return null;
@@ -13,10 +13,12 @@ const isHot = item.spiceLevel === "spicy" ;
 const isMed = item.spiceLevel === "medium" ;
 
   return (
-    <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex justify-center items-center z-50">
+    <div className={`fixed inset-0 bg-black/30 backdrop-blur-sm flex justify-center items-center z-50 transition-opacity duration-300 
+        ${open ? "opacity-100 visible" : "opacity-0 invisible"}`}>
       
       
-      <div className="bg-bgmed py-10 px-6 w-[90%] lg:w-[35%] rounded-lg shadow-xl md:py-6 relative animate-fadeIn">
+      <div className={`bg-bgmed py-10 px-6 w-[90%] lg:w-[35%] rounded-lg shadow-xl md:py-6 relative transform transition-all duration-300 
+              ${open ? "scale-100 opacity-100" : "scale-95 opacity-0"}`}>
         
       
         <button

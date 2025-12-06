@@ -5,7 +5,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import BuyModal from "./BuyModal";
 import toast from "react-hot-toast";
 const CartDrawer = ({ isOpen, onClose}) => {
-  if (!isOpen) return null;
+
   const [buyModal, setBuyModal] = useState(false)
   const { cartItems, removeFromCart, setEditItem } = useContext(CartContext)
   const [tip, settip] = useState(0)
@@ -24,7 +24,10 @@ const CartDrawer = ({ isOpen, onClose}) => {
     
   }
   return (
-    <div className="fixed inset-0 z-55 flex">
+    <div className={`fixed inset-0 z-55 flex transition-all duration-300
+    ${isOpen ? "pointer-events-auto" : "pointer-events-none"}
+  `}
+>
 
     
       <div 
@@ -33,7 +36,11 @@ const CartDrawer = ({ isOpen, onClose}) => {
       />
 
  
-      <div className="w-[85%] sm:w-[43%] bg-bgmed h-full shadow-xl p-4 flex flex-col">
+      <div className={`w-[85%] lg:w-[43%] bg-bgmed h-full shadow-xl p-4 flex flex-col
+    transition-transform duration-300 ease-out
+    ${isOpen ? "translate-x-0" : "translate-x-full"}
+  `}
+>
         
      
         <div className="flex justify-between items-center mb-4">
@@ -59,7 +66,7 @@ const CartDrawer = ({ isOpen, onClose}) => {
                   alt=""
                   className="whitetext w-30 h-25 object-cover rounded-md"
                 />
-               <button className="absolute largewhite right-2" onClick={()=> removeFromCart(index)}><div className="md:hidden  items-center"><XMarkIcon className="largewhite h-6 hover:text-bgdark w-6 font-light text-myash/90" /></div></button>
+               <button className="absolute largewhite right-2" onClick={()=> removeFromCart(index)}><div className="lg:hidden  items-center"><XMarkIcon className="largewhite h-6 hover:text-bgdark w-6 font-light text-myash/90" /></div></button>
 
                 <div className="flex-1 ">
                   <div className="flex justify-center  flex-col">
@@ -74,7 +81,7 @@ const CartDrawer = ({ isOpen, onClose}) => {
                   </div>
 
              
-                  <div className="overflow-x-scroll md:max-w-999 sm:max-w-[40vw] max-w-[35vw] flex md:flex-wrap gap-1 md:gap-2 mt-1 hide-scrollbar">
+                  <div className="overflow-x-scroll max-w-[35vw] sm:max-w-[40vw] lg:max-w-999  flex lg:flex-wrap gap-1 md:gap-2 mt-1 hide-scrollbar">
                     <span className="hover:-translate-y-[1px] duration-300 px-2 py-1 text-xs rounded bg-bgmed border border-myash/40 text-myash/90">
                       Qty:⠀{item.count}
                     </span>
@@ -105,7 +112,7 @@ const CartDrawer = ({ isOpen, onClose}) => {
                   
                   
                 </div>
-                <button onClick={()=> removeFromCart(index)}><div className=" flex largewhite hidden md:flex items-center"><XMarkIcon className="h-12 hover:text-bgdark w-12 font-light text-myash/90" /></div></button>
+                <button onClick={()=> removeFromCart(index)}><div className=" flex largewhite hidden lg:flex items-center"><XMarkIcon className="h-12 hover:text-bgdark w-12 font-light text-myash/90" /></div></button>
               </div>
             ))
           )}

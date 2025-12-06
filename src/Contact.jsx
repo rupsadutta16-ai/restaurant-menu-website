@@ -1,6 +1,7 @@
 import { section } from "framer-motion/client";
 import { FaPhone, FaEnvelope, FaInstagram, FaFacebook, FaTwitter } from "react-icons/fa";
-
+import AOS from "aos";
+import { useEffect } from "react";
 const contacts = [
   { icon: FaPhone, text: "+91 9876543210" },
   { icon: FaEnvelope, text: "info@bitestreet.com" },
@@ -10,6 +11,7 @@ const contacts = [
 ];
 
 const Contact = () => {
+  useEffect(() => { AOS.refreshHard(); });
   return (
     <section id="contact" className="scroll-mt-40 w-full mt-52">
       <h1 data-aos="fade-up" className="md:text-5xl text-4xl mx-auto w-[85%] whitetext text-mybutter font-pacifico ">Bite <span className="text-myash font-quicksand font-bold tracking-tight">Street</span></h1>

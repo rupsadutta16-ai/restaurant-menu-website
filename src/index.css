@@ -145,11 +145,23 @@ body {
   display: none;
 }
 .hide-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;     /* Firefox */
+  -ms-overflow-style: none; 
+  scrollbar-width: none;   
 }
 
-/* Apply herocard only on medium screens and above */
+.cart-drawer {
+  position: relative;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-out;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  pointer-events: none;
+}
+
+.cart-drawer.open {
+  transform: translateX(0);
+}
 @media (max-width: 768px) {
   .md\:herocard {
     background: linear-gradient(to bottom, #b03320 0%, #c14b36 40%, #f4e6d2 100%);

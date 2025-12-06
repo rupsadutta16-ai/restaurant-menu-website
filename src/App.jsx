@@ -1,5 +1,4 @@
 import { useContext, useState, useEffect, useRef } from 'react'
-import { MenuContext } from './MenuContext.jsx'
 import Hero from './Hero.jsx'
 import Nav from './Nav.jsx'
 import Bgimg from './BgImg.jsx'
@@ -13,19 +12,36 @@ import AOS from "aos"
 import "aos/dist/aos.css";
 function App() {
   const [carouselStart, setCarouselStart] = useState(false);
-   
+    const [showPlate, setShowPlate] = useState(true);
+  const [showPlateInTarget, setShowPlateInTarget] = useState(false);
+  const [showHeroPlate, setShowHeroPlate] = useState(true);
   useEffect(() => {
     AOS.init({ duration: 400, once: true, offset: 80, easing: "ease-out", delay: 0 })
     window.scrollTo(0, 0);
+     setTimeout(() => {
+    AOS.refreshHard();
+  }, 100);
+
   }, []);
   return (
     <>
-    <HeroPlate  onAnimationEnd={() => setCarouselStart(true)} />
+    {showHeroPlate && <HeroPlate
+  showPlate={showPlate}
+  onAnimationEnd={() => {
+    setCarouselStart(true);
+    setTimeout(() => {
+      setShowHeroPlate(false)
+      
+    }, 500);
+    
+  }}
+/> }
+
     <Bgimg />
     <CartProvider>
       <div className=" overflow-x-clip relative z-10 min-h-screen text-txt font-serif">
           <Nav />
-          <Hero carouselStart={carouselStart} setCarouselStart={setCarouselStart} />
+          <Hero showPlateInTarget={showPlateInTarget} carouselStart={carouselStart} setCarouselStart={setCarouselStart} />
           <Menu />
           <Contact />
           <Footer />
