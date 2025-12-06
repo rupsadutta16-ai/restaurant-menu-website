@@ -91,7 +91,6 @@ const BuyModal = ({ isOpen, onClose }) => {
         setSuccess(false);
         onClose();
         setCartDrawer(false)
-        // Optionally, reset fields
         setName("");
         setPhone("");
         setAddress("");
